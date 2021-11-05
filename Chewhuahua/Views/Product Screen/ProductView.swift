@@ -9,10 +9,28 @@ import Foundation
 import SwiftUI
 
 struct ProductView: View {
-	// MARK: - Properties
+	// MARK: - Init Properties
+	@Environment(\.dismiss) var dismiss
 	@StateObject var viewModel: ProductViewModel
 	
+	// MARK: View
 	var body: some View {
-		Text("ProductView")
+		NavigationView {
+			VStack {
+				Text("Product with barcode:\n\(viewModel.barcode)")
+					.fontWeight(.bold)
+					.font(.title2)
+					.multilineTextAlignment(.center)
+					.padding()
+			}
+			.toolbar {
+				Button("Done", action: onDoneButtonTapped)
+			}
+		}
+	}
+	
+	// MARK: - Done Button
+	func onDoneButtonTapped() {
+		dismiss()
 	}
 }

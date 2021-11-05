@@ -25,6 +25,11 @@
 		3FAA549927359245008FEB73 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA549827359245008FEB73 /* ProductViewModel.swift */; };
 		3FAA549C273592B8008FEB73 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA549B273592B8008FEB73 /* ScanView.swift */; };
 		3FAA549E273592CA008FEB73 /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA549D273592CA008FEB73 /* ScanViewModel.swift */; };
+		3FAA54A02735AB4A008FEB73 /* BarcodeScannerView+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA549F2735AB4A008FEB73 /* BarcodeScannerView+Coordinator.swift */; };
+		3FAA54A22735AB7E008FEB73 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A12735AB7E008FEB73 /* CameraView.swift */; };
+		3FAA54A42735AF05008FEB73 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A32735AF05008FEB73 /* Extension+View.swift */; };
+		3FAA54A62735AF61008FEB73 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A52735AF61008FEB73 /* Extension+Color.swift */; };
+		3FAA54A82735C94C008FEB73 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A72735C94C008FEB73 /* BarcodeScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +52,11 @@
 		3FAA549827359245008FEB73 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		3FAA549B273592B8008FEB73 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		3FAA549D273592CA008FEB73 /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
+		3FAA549F2735AB4A008FEB73 /* BarcodeScannerView+Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BarcodeScannerView+Coordinator.swift"; sourceTree = "<group>"; };
+		3FAA54A12735AB7E008FEB73 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		3FAA54A32735AF05008FEB73 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		3FAA54A52735AF61008FEB73 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
+		3FAA54A72735C94C008FEB73 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +124,8 @@
 		3FAA547D27358D64008FEB73 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3FAA54A32735AF05008FEB73 /* Extension+View.swift */,
+				3FAA54A52735AF61008FEB73 /* Extension+Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,6 +181,9 @@
 			children = (
 				3FAA549B273592B8008FEB73 /* ScanView.swift */,
 				3FAA549D273592CA008FEB73 /* ScanViewModel.swift */,
+				3FAA54A72735C94C008FEB73 /* BarcodeScannerView.swift */,
+				3FAA549F2735AB4A008FEB73 /* BarcodeScannerView+Coordinator.swift */,
+				3FAA54A12735AB7E008FEB73 /* CameraView.swift */,
 			);
 			path = "Scan Screen";
 			sourceTree = "<group>";
@@ -246,18 +261,23 @@
 				3FAA549E273592CA008FEB73 /* ScanViewModel.swift in Sources */,
 				3FAA548027358DA5008FEB73 /* CoreDataStack.swift in Sources */,
 				3FAA54922735906D008FEB73 /* HistoryView.swift in Sources */,
+				3FAA54A82735C94C008FEB73 /* BarcodeScannerView.swift in Sources */,
+				3FAA54A22735AB7E008FEB73 /* CameraView.swift in Sources */,
 				3FAA548F2735901B008FEB73 /* HomeViewModel.swift in Sources */,
 				3FAA548827358F15008FEB73 /* MainView.swift in Sources */,
 				3FAA54972735922E008FEB73 /* ProductView.swift in Sources */,
+				3FAA54A62735AF61008FEB73 /* Extension+Color.swift in Sources */,
 				3FAA548527358E78008FEB73 /* AppDependencyContainer.swift in Sources */,
 				3FAA548D27359008008FEB73 /* HomeView.swift in Sources */,
 				3F71FA122735850700FCF5B0 /* ContentView.swift in Sources */,
 				3FAA549C273592B8008FEB73 /* ScanView.swift in Sources */,
 				3F71FA1C2735850900FCF5B0 /* Chewhuahua.xcdatamodeld in Sources */,
+				3FAA54A02735AB4A008FEB73 /* BarcodeScannerView+Coordinator.swift in Sources */,
 				3FAA548327358DCD008FEB73 /* CoreDataRepository.swift in Sources */,
 				3F71FA102735850700FCF5B0 /* ChewhuahuaApp.swift in Sources */,
 				3FAA549427359086008FEB73 /* HistoryViewModel.swift in Sources */,
 				3FAA548A27358F38008FEB73 /* MainViewModel.swift in Sources */,
+				3FAA54A42735AF05008FEB73 /* Extension+View.swift in Sources */,
 				3FAA549927359245008FEB73 /* ProductViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +412,7 @@
 				DEVELOPMENT_TEAM = 55MMS4NHP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to your camera. The camera is needed to capture the barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -422,6 +443,7 @@
 				DEVELOPMENT_TEAM = 55MMS4NHP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to your camera. The camera is needed to capture the barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -11,7 +11,7 @@ import SwiftUI
 struct HomeView: View {
 	// MARK: - Properties
 	@StateObject var viewModel: HomeViewModel
-	let makeProductView: () -> ProductView
+	let makeProductView: (_ barcode: String) -> ProductView
 	
 	var body: some View {
 		Text("HomeView")

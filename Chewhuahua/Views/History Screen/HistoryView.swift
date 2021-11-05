@@ -11,7 +11,7 @@ import SwiftUI
 struct HistoryView: View {
 	// MARK: - Properties
 	@StateObject var viewModel: HistoryViewModel
-	let makeProductView: () -> ProductView
+	let makeProductView: (_ barcode: String) -> ProductView
 	
 	var body: some View {
 		Text("HistoryView")
