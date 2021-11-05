@@ -9,12 +9,25 @@ import SwiftUI
 
 @main
 struct ChewhuahuaApp: App {
-    let persistenceController = PersistenceController.shared
-
+	// MARK: - Properties
+	let injectionContainer = AppDependencyContainer()
+	
+	// MARK: - View Properties
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            mainView
         }
     }
+	
+	var mainView: some View {
+		return injectionContainer.makeMainView()
+			.environment(\.managedObjectContext, injectionContainer.coreDataStack.managedContext)
+	}
+	
+	// MARK: - Methods
+	init() {
+		let brandTealColor = UIColor(named: "brandTeal") ?? UIColor.systemTeal
+		UINavigationBar.appearance().tintColor = brandTealColor
+		UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: brandTealColor]
+	}
 }
