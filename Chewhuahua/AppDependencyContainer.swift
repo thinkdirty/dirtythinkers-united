@@ -65,7 +65,7 @@ class AppDependencyContainer {
 	// Scan
 	func makeScanView() -> ScanView {
 		let viewModel = makeScanViewModel()
-		return ScanView(viewModel: viewModel)
+		return ScanView(viewModel: viewModel, makeProductView: makeProductView)
 	}
 	
 	func makeScanViewModel() -> ScanViewModel {
@@ -74,14 +74,14 @@ class AppDependencyContainer {
 	}
 	
 	// Product
-	func makeProductView() -> ProductView {
-		let viewModel = makeProductViewModel()
+	func makeProductView(_ barcode: String) -> ProductView {
+		let viewModel = makeProductViewModel(barcode: barcode)
 		return ProductView(viewModel: viewModel)
 	}
 	
-	func makeProductViewModel() -> ProductViewModel {
+	func makeProductViewModel(barcode: String) -> ProductViewModel {
 		let repository = makeDataRepository()
-		return ProductViewModel(dataRepository: repository)
+		return ProductViewModel(dataRepository: repository, barcode: barcode)
 	}
 	
 	// Data Repository
