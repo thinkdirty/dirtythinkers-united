@@ -11,7 +11,7 @@ import SwiftUI
 struct ScanView: View {
 	// MARK: - Init Properties
 	@StateObject var viewModel: ScanViewModel
-	let makeProductView: (_ barcode: String) -> ProductView
+	let makeProductView: (_ barcode: String, _ isPresentedModally: Bool) -> ProductView
 	
 	// MARK: - View Properties
 	var body: some View {
@@ -30,7 +30,7 @@ struct ScanView: View {
 	}
 	
 	private var productView: some View {
-		makeProductView(viewModel.barcode)
+		makeProductView(viewModel.barcode, true)
 	}
 	
 	// MARK: - Methods

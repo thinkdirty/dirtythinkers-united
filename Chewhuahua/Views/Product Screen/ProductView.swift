@@ -9,28 +9,114 @@ import Foundation
 import SwiftUI
 
 struct ProductView: View {
-	// MARK: - Init Properties
+	// MARK: - Environment Properties
 	@Environment(\.dismiss) var dismiss
+
+	// MARK: - Init Properties
 	@StateObject var viewModel: ProductViewModel
+	let isPresentedModally: Bool
 	
 	// MARK: View
 	var body: some View {
-		NavigationView {
-			VStack {
-				Text("Product with barcode:\n\(viewModel.barcode)")
-					.fontWeight(.bold)
-					.font(.title2)
-					.multilineTextAlignment(.center)
-					.padding()
-			}
-			.toolbar {
-				Button("Done", action: onDoneButtonTapped)
+		VStack {
+			if let product = viewModel.product,
+			   let productName = product.name,
+			   let barcode = product.barcode,
+			   let photoURL = product.photoURL,
+			   let ingredientsSet = product.ingredients as? Set<Ingredient>,
+			   let ingredients = Array(ingredientsSet).sorted(by: \.rating, ascending: false)
+			{
+				AsyncImage(url: URL(string: photoURL),
+						   content: { image in
+					image
+						.resizable()
+						.scaledToFit()
+					
+				}) {
+					Image(systemName: "photo")
+						.resizable()
+						.scaledToFit()
+					Text("Sorry, but we can't find the image for this product")
+				}
+				.frame(minWidth: .zero, maxWidth: .infinity,
+					   minHeight: 200, maxHeight: 200,
+					   alignment: .center)
+				.padding(.vertical, 20)
+				.background(Color.white)
+				.padding(.bottom, 5)
+				
+				VStack {
+					Text(productName)
+						.fontWeight(.bold)
+						.font(.title2)
+						.frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading)
+						.padding(.bottom, 5)
+					
+					Text("Barcode: \(barcode)")
+						.fontWeight(.bold)
+						.font(.headline)
+						.frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading)
+				}
+				.multilineTextAlignment(.leading)
+				.padding(.horizontal, 20)
+				
+				List(ingredients, id: \.self) { ingredient in
+					if let name = ingredient.name,
+					   let rating = ingredient.rating {
+						HStack {
+							Text(name)
+							Spacer()
+							Text("\(rating)")
+						}
+						.padding(.horizontal, 20)
+						.listRowBackground(listRowBackground(for: rating))
+					}
+				}
+			} else {
+				Text("Sorry, but we can't find this product in the database.")
 			}
 		}
+		.fullScreen()
+		.ignoresSafeArea(edges: isPresentedModally ? [.top] : [])
+		.overlay(alignment: .topLeading, content: {
+			if isPresentedModally {
+				closeButton
+					.padding(15)
+			}
+		})
+		.onAppear(perform: onAppear)
 	}
 	
-	// MARK: - Done Button
-	func onDoneButtonTapped() {
+	// MARK: - Close Button
+	private var closeButton: some View {
+		Button(action: onCloseButtonTapped, label: {
+			Image(systemName: "xmark")
+				.imageScale(.large)
+				.foregroundColor(.black)
+				.shadow(color: .gray, radius: 3)
+				.padding([.trailing, .bottom], 15)
+		})
+	}
+	
+	private func onCloseButtonTapped() {
 		dismiss()
+	}
+	
+	// MARK: - Methods
+	private func onAppear() {
+		viewModel.fetchProduct()
+	}
+		
+	private func listRowBackground(for rating: Int16) -> some View {
+		switch rating {
+		case 0...3:
+			return Color.green
+		case 4...6:
+			return Color.yellow
+		case 7...10:
+			return Color.red
+		default:
+			return Color.gray
+		}
 	}
 }
