@@ -30,6 +30,8 @@
 		3FAA54A42735AF05008FEB73 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A32735AF05008FEB73 /* Extension+View.swift */; };
 		3FAA54A62735AF61008FEB73 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A52735AF61008FEB73 /* Extension+Color.swift */; };
 		3FAA54A82735C94C008FEB73 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A72735C94C008FEB73 /* BarcodeScannerView.swift */; };
+		3FAA54AA2735D6D6008FEB73 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A92735D6D6008FEB73 /* Extension+String.swift */; };
+		3FAA54AC2735E489008FEB73 /* Extension+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54AB2735E489008FEB73 /* Extension+Sequence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		3FAA54A32735AF05008FEB73 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		3FAA54A52735AF61008FEB73 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		3FAA54A72735C94C008FEB73 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
+		3FAA54A92735D6D6008FEB73 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		3FAA54AB2735E489008FEB73 /* Extension+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Sequence.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 			children = (
 				3FAA54A32735AF05008FEB73 /* Extension+View.swift */,
 				3FAA54A52735AF61008FEB73 /* Extension+Color.swift */,
+				3FAA54A92735D6D6008FEB73 /* Extension+String.swift */,
+				3FAA54AB2735E489008FEB73 /* Extension+Sequence.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				3FAA549E273592CA008FEB73 /* ScanViewModel.swift in Sources */,
 				3FAA548027358DA5008FEB73 /* CoreDataStack.swift in Sources */,
 				3FAA54922735906D008FEB73 /* HistoryView.swift in Sources */,
+				3FAA54AC2735E489008FEB73 /* Extension+Sequence.swift in Sources */,
 				3FAA54A82735C94C008FEB73 /* BarcodeScannerView.swift in Sources */,
 				3FAA54A22735AB7E008FEB73 /* CameraView.swift in Sources */,
 				3FAA548F2735901B008FEB73 /* HomeViewModel.swift in Sources */,
@@ -276,6 +283,7 @@
 				3FAA548327358DCD008FEB73 /* CoreDataRepository.swift in Sources */,
 				3F71FA102735850700FCF5B0 /* ChewhuahuaApp.swift in Sources */,
 				3FAA549427359086008FEB73 /* HistoryViewModel.swift in Sources */,
+				3FAA54AA2735D6D6008FEB73 /* Extension+String.swift in Sources */,
 				3FAA548A27358F38008FEB73 /* MainViewModel.swift in Sources */,
 				3FAA54A42735AF05008FEB73 /* Extension+View.swift in Sources */,
 				3FAA549927359245008FEB73 /* ProductViewModel.swift in Sources */,

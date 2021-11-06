@@ -74,9 +74,9 @@ class AppDependencyContainer {
 	}
 	
 	// Product
-	func makeProductView(_ barcode: String) -> ProductView {
+	func makeProductView(_ barcode: String, isPresentedModally: Bool) -> ProductView {
 		let viewModel = makeProductViewModel(barcode: barcode)
-		return ProductView(viewModel: viewModel)
+		return ProductView(viewModel: viewModel, isPresentedModally: isPresentedModally)
 	}
 	
 	func makeProductViewModel(barcode: String) -> ProductViewModel {
@@ -86,6 +86,14 @@ class AppDependencyContainer {
 	
 	// Data Repository
 	func makeDataRepository() -> DataRepository {
-		return RealCoreDataRepository(coreDataStack: self.coreDataStack)
+		let repository: DataRepository = RealCoreDataRepository(coreDataStack: self.coreDataStack)
+		let isInitialDataLoaded = UserDefaults.standard.bool(forKey: .isInitialDataLoaded)
+		
+		if !isInitialDataLoaded {
+			repository.parseInitialData()
+			UserDefaults.standard.set(true, forKey: .isInitialDataLoaded)
+		}
+		
+		return repository
 	}
 }
