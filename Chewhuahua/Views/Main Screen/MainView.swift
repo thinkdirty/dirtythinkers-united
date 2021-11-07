@@ -16,24 +16,31 @@ struct MainView: View {
 	let makeHistoryView: () -> HistoryView
 	let makeScanView: () -> ScanView
 	
+	// MARK: - Properties
+	@State var selectedView = 0
+	
 	// MARK: - View Properties
 	var body: some View {
-		TabView {
+		TabView(selection: $selectedView) {
 			homeView
 				.tabItem {
-					Label("Home", systemImage: "house")
+					Image("home")
 				}
-			
+				.tag(0)
+
 			scanView
 				.tabItem {
-					Label("Scan", systemImage: "barcode.viewfinder")
+					Image(selectedView == 1 ? "bowl_active" : "bowl_inactive")
 				}
-			
+				.tag(1)
+
 			historyView
 				.tabItem {
-					Label("History", systemImage: "gobackward")
+					Image("ball")
 				}
+				.tag(2)
 		}
+		.accentColor(.brandOrange)
 	}
 	
 	var homeView: some View {

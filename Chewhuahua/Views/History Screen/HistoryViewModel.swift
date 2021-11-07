@@ -12,7 +12,7 @@ class HistoryViewModel: ObservableObject {
 	// MARK: - Properties
 	let dataRepository: DataRepository
 	
-	@Published var productViewRecords: [ProductViewRecord] = []
+	@Published var productViewRecords: [UIProductViewRecord] = []
 	
 	// MARK: - Methods
 	init(dataRepository: DataRepository) {
@@ -20,6 +20,7 @@ class HistoryViewModel: ObservableObject {
 	}
 	
 	func fetchProductViewRecords() {
-		productViewRecords = dataRepository.fetchProductViewRecords()
+		let coreDataProductViewRecords = dataRepository.fetchProductViewRecords()
+		productViewRecords = UIProductViewRecord.transform(coreDataProductViewRecords)
 	}
 }

@@ -14,7 +14,7 @@ class ProductViewModel: ObservableObject {
 	let dataRepository: DataRepository
 	let barcode: String
 	
-	@Published var product: Product?
+	@Published var product: UIProduct?
 	
 	var subscriptions = Set<AnyCancellable>()
 	
@@ -27,7 +27,8 @@ class ProductViewModel: ObservableObject {
 	}
 	
 	func fetchProduct() {
-		product = dataRepository.fetchProduct(with: barcode)
+		guard let coreDataProduct = dataRepository.fetchProduct(with: barcode) else { return }
+		product = UIProduct.transform(coreDataProduct)
 	}
 	
 	// MARK: - Combine Methods
@@ -39,7 +40,8 @@ class ProductViewModel: ObservableObject {
 			.store(in: &subscriptions)
 	}
 	
-	private func onProductUpdated(_ product: Product) {
-		dataRepository.addProductViewRecord(for: product)
+	private func onProductUpdated(_ product: UIProduct) {
+		guard let coreDataProduct = dataRepository.fetchProduct(with: product.barcode) else { return }
+		dataRepository.addProductViewRecord(for: coreDataProduct)
 	}
 }
