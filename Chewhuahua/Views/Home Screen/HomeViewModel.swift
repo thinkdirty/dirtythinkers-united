@@ -9,11 +9,19 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
 	
-	// MARK: - Properties
+	// MARK: - Init Properties
 	let dataRepository: DataRepository
+	
+	// MARK: - Properties
+	@Published var products: [UIProduct] = []
 	
 	// MARK: - Methods
 	init(dataRepository: DataRepository) {
 		self.dataRepository = dataRepository
+	}
+	
+	func fetchProducts() {
+		let coreDataProducts = dataRepository.fetchAllProducts()
+		products = UIProduct.transform(coreDataProducts)
 	}
 }

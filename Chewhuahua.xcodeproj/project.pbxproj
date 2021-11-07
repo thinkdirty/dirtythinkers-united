@@ -32,6 +32,10 @@
 		3FAA54A82735C94C008FEB73 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A72735C94C008FEB73 /* BarcodeScannerView.swift */; };
 		3FAA54AA2735D6D6008FEB73 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54A92735D6D6008FEB73 /* Extension+String.swift */; };
 		3FAA54AC2735E489008FEB73 /* Extension+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54AB2735E489008FEB73 /* Extension+Sequence.swift */; };
+		3FAA54AE273718BC008FEB73 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54AD273718BC008FEB73 /* CardView.swift */; };
+		3FAA54B027371909008FEB73 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54AF27371909008FEB73 /* ProductDetailsView.swift */; };
+		3FAA54B327372DEB008FEB73 /* UIProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54B227372DEB008FEB73 /* UIProduct.swift */; };
+		3FAA54B527372E10008FEB73 /* UIIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54B427372E10008FEB73 /* UIIngredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,10 @@
 		3FAA54A72735C94C008FEB73 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		3FAA54A92735D6D6008FEB73 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		3FAA54AB2735E489008FEB73 /* Extension+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Sequence.swift"; sourceTree = "<group>"; };
+		3FAA54AD273718BC008FEB73 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3FAA54AF27371909008FEB73 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		3FAA54B227372DEB008FEB73 /* UIProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProduct.swift; sourceTree = "<group>"; };
+		3FAA54B427372E10008FEB73 /* UIIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIngredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,7 @@
 		3FAA547C27358D59008FEB73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3FAA54B127372DCD008FEB73 /* UI Models */,
 				3FAA549A2735929E008FEB73 /* Scan Screen */,
 				3FAA549527359210008FEB73 /* Product Screen */,
 				3FAA54902735903C008FEB73 /* History Screen */,
@@ -160,6 +169,8 @@
 			children = (
 				3FAA548C27359008008FEB73 /* HomeView.swift */,
 				3FAA548E2735901B008FEB73 /* HomeViewModel.swift */,
+				3FAA54AD273718BC008FEB73 /* CardView.swift */,
+				3FAA54AF27371909008FEB73 /* ProductDetailsView.swift */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -192,6 +203,15 @@
 				3FAA54A12735AB7E008FEB73 /* CameraView.swift */,
 			);
 			path = "Scan Screen";
+			sourceTree = "<group>";
+		};
+		3FAA54B127372DCD008FEB73 /* UI Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FAA54B227372DEB008FEB73 /* UIProduct.swift */,
+				3FAA54B427372E10008FEB73 /* UIIngredient.swift */,
+			);
+			path = "UI Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,14 +298,18 @@
 				3FAA548D27359008008FEB73 /* HomeView.swift in Sources */,
 				3F71FA122735850700FCF5B0 /* ContentView.swift in Sources */,
 				3FAA549C273592B8008FEB73 /* ScanView.swift in Sources */,
+				3FAA54B027371909008FEB73 /* ProductDetailsView.swift in Sources */,
+				3FAA54B527372E10008FEB73 /* UIIngredient.swift in Sources */,
 				3F71FA1C2735850900FCF5B0 /* Chewhuahua.xcdatamodeld in Sources */,
 				3FAA54A02735AB4A008FEB73 /* BarcodeScannerView+Coordinator.swift in Sources */,
 				3FAA548327358DCD008FEB73 /* CoreDataRepository.swift in Sources */,
 				3F71FA102735850700FCF5B0 /* ChewhuahuaApp.swift in Sources */,
 				3FAA549427359086008FEB73 /* HistoryViewModel.swift in Sources */,
 				3FAA54AA2735D6D6008FEB73 /* Extension+String.swift in Sources */,
+				3FAA54B327372DEB008FEB73 /* UIProduct.swift in Sources */,
 				3FAA548A27358F38008FEB73 /* MainViewModel.swift in Sources */,
 				3FAA54A42735AF05008FEB73 /* Extension+View.swift in Sources */,
+				3FAA54AE273718BC008FEB73 /* CardView.swift in Sources */,
 				3FAA549927359245008FEB73 /* ProductViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
