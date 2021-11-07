@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
-        <attribute name="name" attributeType="String"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="rating" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="ingredients" inverseEntity="Product"/>
         <uniquenessConstraints>
@@ -11,9 +11,13 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
-        <attribute name="barcode" attributeType="String"/>
-        <attribute name="name" attributeType="String"/>
-        <attribute name="photoURL" optional="YES" attributeType="String"/>
+        <attribute name="barcode" attributeType="String" defaultValueString=""/>
+        <attribute name="brand" attributeType="String" defaultValueString=""/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="photoURL" attributeType="String" defaultValueString=""/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="rating" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weight" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="ingredients" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="products" inverseEntity="Ingredient"/>
         <relationship name="views" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductViewRecord" inverseName="product" inverseEntity="ProductViewRecord"/>
         <uniquenessConstraints>
@@ -33,7 +37,7 @@
     </entity>
     <elements>
         <element name="Ingredient" positionX="611.8466186523438" positionY="-142.6917724609375" width="128" height="74"/>
-        <element name="Product" positionX="25.8670654296875" positionY="-401.2681274414062" width="128" height="104"/>
+        <element name="Product" positionX="25.8670654296875" positionY="-401.2681274414062" width="128" height="164"/>
         <element name="ProductViewRecord" positionX="234" positionY="-243" width="128" height="59"/>
     </elements>
 </model>
