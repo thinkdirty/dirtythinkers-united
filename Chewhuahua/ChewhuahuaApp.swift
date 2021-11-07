@@ -15,7 +15,7 @@ struct ChewhuahuaApp: App {
 	// MARK: - View Properties
     var body: some Scene {
         WindowGroup {
-            mainView
+			mainView
         }
     }
 	
@@ -24,10 +24,13 @@ struct ChewhuahuaApp: App {
 			.environment(\.managedObjectContext, injectionContainer.coreDataStack.managedContext)
 	}
 	
+	
 	// MARK: - Methods
 	init() {
-		let brandTealColor = UIColor(named: "brandTeal") ?? UIColor.systemTeal
-		UINavigationBar.appearance().tintColor = brandTealColor
-		UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: brandTealColor]
+		UITabBar.appearance().tintColor = UIColor(.brandOrange)
+
+		let brandOrange = UIColor(.brandOrange)
+		UINavigationBar.appearance().tintColor = brandOrange
+		UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: brandOrange]
 	}
 }

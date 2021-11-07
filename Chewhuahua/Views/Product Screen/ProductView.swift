@@ -19,14 +19,8 @@ struct ProductView: View {
 	// MARK: View
 	var body: some View {
 		VStack {
-			if let product = viewModel.product,
-			   let productName = product.name,
-			   let barcode = product.barcode,
-			   let photoURL = product.photoURL,
-			   let ingredientsSet = product.ingredients as? Set<Ingredient>,
-			   let ingredients = Array(ingredientsSet).sorted(by: \.rating, ascending: false)
-			{
-				AsyncImage(url: URL(string: photoURL),
+			if let product = viewModel.product {
+				AsyncImage(url: URL(string: product.photoURL),
 						   content: { image in
 					image
 						.resizable()
@@ -45,33 +39,7 @@ struct ProductView: View {
 				.background(Color.white)
 				.padding(.bottom, 5)
 				
-				VStack {
-					Text(productName)
-						.fontWeight(.bold)
-						.font(.title2)
-						.frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading)
-						.padding(.bottom, 5)
-					
-					Text("Barcode: \(barcode)")
-						.fontWeight(.bold)
-						.font(.headline)
-						.frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading)
-				}
-				.multilineTextAlignment(.leading)
-				.padding(.horizontal, 20)
-				
-				List(ingredients, id: \.self) { ingredient in
-					if let name = ingredient.name,
-					   let rating = ingredient.rating {
-						HStack {
-							Text(name)
-							Spacer()
-							Text("\(rating)")
-						}
-						.padding(.horizontal, 20)
-						.listRowBackground(listRowBackground(for: rating))
-					}
-				}
+				ProductDetailView(product: product)
 			} else {
 				Text("Sorry, but we can't find this product in the database.")
 			}

@@ -100,7 +100,7 @@ struct ProductDetailView: View {
 									.padding(.vertical, 2)
 								}
 							}
-							.padding(.bottom, 200)
+							.padding(.bottom, 280)
 						}
 					}
 					.padding()
@@ -122,8 +122,8 @@ struct ProductDetailView: View {
 						} else {
 							width = geometry.size.width
 							height = geometry.size.height
-							maxWidth = nil
-							maxHeight = nil
+							maxWidth = .infinity
+							maxHeight = .infinity
 						}
 					}
 					.overlay(alignment: .topTrailing) {

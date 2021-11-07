@@ -36,6 +36,7 @@
 		3FAA54B027371909008FEB73 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54AF27371909008FEB73 /* ProductDetailsView.swift */; };
 		3FAA54B327372DEB008FEB73 /* UIProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54B227372DEB008FEB73 /* UIProduct.swift */; };
 		3FAA54B527372E10008FEB73 /* UIIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54B427372E10008FEB73 /* UIIngredient.swift */; };
+		3FAA54B727388877008FEB73 /* UIProductViewRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA54B627388877008FEB73 /* UIProductViewRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		3FAA54AF27371909008FEB73 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		3FAA54B227372DEB008FEB73 /* UIProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProduct.swift; sourceTree = "<group>"; };
 		3FAA54B427372E10008FEB73 /* UIIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIngredient.swift; sourceTree = "<group>"; };
+		3FAA54B627388877008FEB73 /* UIProductViewRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProductViewRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +172,6 @@
 				3FAA548C27359008008FEB73 /* HomeView.swift */,
 				3FAA548E2735901B008FEB73 /* HomeViewModel.swift */,
 				3FAA54AD273718BC008FEB73 /* CardView.swift */,
-				3FAA54AF27371909008FEB73 /* ProductDetailsView.swift */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -189,6 +190,7 @@
 			children = (
 				3FAA54962735922E008FEB73 /* ProductView.swift */,
 				3FAA549827359245008FEB73 /* ProductViewModel.swift */,
+				3FAA54AF27371909008FEB73 /* ProductDetailsView.swift */,
 			);
 			path = "Product Screen";
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 			children = (
 				3FAA54B227372DEB008FEB73 /* UIProduct.swift */,
 				3FAA54B427372E10008FEB73 /* UIIngredient.swift */,
+				3FAA54B627388877008FEB73 /* UIProductViewRecord.swift */,
 			);
 			path = "UI Models";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				3FAA54922735906D008FEB73 /* HistoryView.swift in Sources */,
 				3FAA54AC2735E489008FEB73 /* Extension+Sequence.swift in Sources */,
 				3FAA54A82735C94C008FEB73 /* BarcodeScannerView.swift in Sources */,
+				3FAA54B727388877008FEB73 /* UIProductViewRecord.swift in Sources */,
 				3FAA54A22735AB7E008FEB73 /* CameraView.swift in Sources */,
 				3FAA548F2735901B008FEB73 /* HomeViewModel.swift in Sources */,
 				3FAA548827358F15008FEB73 /* MainView.swift in Sources */,

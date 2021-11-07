@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct UIProduct: Identifiable {
-	var id: String { name }
+	var id: String { barcode }
 	
 	let barcode: String
 	let brand: String
@@ -45,5 +45,16 @@ struct UIProduct: Identifiable {
 		}
 		
 		return products
+	}
+	
+	static func transform(_ product: Product) -> UIProduct? {
+		let singleProductArray = [product]
+		return transform(singleProductArray).first
+	}
+}
+
+extension UIProduct: Equatable {
+	static func == (lhs: UIProduct, rhs: UIProduct) -> Bool {
+		return lhs.barcode == rhs.barcode
 	}
 }
