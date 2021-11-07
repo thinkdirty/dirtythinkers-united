@@ -25,6 +25,12 @@ struct ProductView: View {
 					image
 						.resizable()
 						.scaledToFit()
+						.overlay(Image("green_dog_bowl_check")
+									.resizable()
+									.scaledToFit()
+									.frame(height: 40)
+									.offset(x: 30, y: 20)
+								 , alignment: .bottomTrailing)
 					
 				}) {
 					Image(systemName: "photo")
