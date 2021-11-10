@@ -11,13 +11,14 @@ import SwiftUI
 struct HomeView: View {
 	// MARK: - Init Properties
 	@StateObject var viewModel: HomeViewModel
-	let makeProductView: (_ barcode: String, _ isPresentedModally: Bool) -> ProductView
 	
 	// MARK: - Properties
 	@State private var isCardTapped = false
 	@State private var currentProductIndex = 0
+	@State var isIngredientsListExpanded: Bool = true
 	
 	@GestureState private var dragOffset: CGFloat = 0
+	
 	
 	var body: some View {
 		ZStack {
@@ -47,7 +48,7 @@ struct HomeView: View {
 						}
 						.padding(.horizontal, self.isCardTapped ? 0 : 20)
 						.opacity(self.currentProductIndex == index ? 1.0 : 0.7)
-						.frame(width: outerView.size.width, height: self.currentProductIndex == index ? (self.isCardTapped ? outerView.size.height - 400 : 450) : 400)
+						.frame(width: outerView.size.width, height: self.currentProductIndex == index ? (self.isCardTapped ? outerView.size.height - 380 : 450) : 380)
 						.onTapGesture {
 							self.isCardTapped = true
 						}
@@ -64,7 +65,7 @@ struct HomeView: View {
 							state = value.translation.width
 						})
 						.onEnded({ (value) in
-							let threshold = outerView.size.width * 0.45
+							let threshold = outerView.size.width * 0.35
 							var newIndex = Int(-value.translation.width / threshold) + self.currentProductIndex
 							newIndex = min(max(newIndex, 0), viewModel.products.count - 1)
 							
@@ -78,32 +79,29 @@ struct HomeView: View {
 			
 			// Detail view
 			if self.isCardTapped {
-				ProductDetailView(product: viewModel.products[currentProductIndex])
-					.offset(y: 280)
+				ProductDetailView(product: viewModel.products[currentProductIndex], isIngredientsListExpanded: $isIngredientsListExpanded)
 					.transition(.move(edge: .bottom))
 					.animation(.interpolatingSpring(mass: 0.5, stiffness: 100, damping: 10, initialVelocity: 0.3))
 					.shadow(color: .gray, radius: 5)
 				
-				Button(action: {
+				CloseButtonView {
 					self.isCardTapped = false
-				}) {
-					Image(systemName: "xmark.circle.fill")
-						.font(.system(size: 30))
-						.foregroundColor(.black)
-						.opacity(0.7)
-						.contentShape(Rectangle())
 				}
-				.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
-				.padding(.trailing)
-				
 			}
 		}
 		.onAppear(perform: onAppear)
+		.onChange(of: isCardTapped, perform: addProductViewRecord)
 	}
 	
 	// MARK: - Methods
 	
 	private func onAppear() {
 		viewModel.fetchProducts()
+	}
+	
+	private func addProductViewRecord(_ isCardTapped: Bool) {
+		if isCardTapped {
+			viewModel.addProductViewRecord(for: currentProductIndex)
+		}
 	}
 }

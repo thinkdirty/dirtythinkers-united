@@ -24,4 +24,9 @@ class HomeViewModel: ObservableObject {
 		let coreDataProducts = dataRepository.fetchAllProducts()
 		products = UIProduct.transform(coreDataProducts)
 	}
+	
+	func addProductViewRecord(for currentProductIndex: Int) {
+		guard let coreDataProduct = dataRepository.fetchProduct(with: products[currentProductIndex].barcode) else { return }
+		dataRepository.addProductViewRecord(for: coreDataProduct)
+	}
 }

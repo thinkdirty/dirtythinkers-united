@@ -29,15 +29,23 @@ struct ProductCardView: View {
 								Text(self.productName)
 									.font(.system(.headline, design: .rounded))
 									.fontWeight(.heavy)
+									.multilineTextAlignment(.center)
 									.padding(10)
 									.background(Color.white)
-									.padding([.bottom, .leading])
+									.padding(.bottom)
 									.opacity(self.isShowDetails ? 0.0 : 1.0)
 									.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
-									.shadow(color: .white, radius: 0)
+									.offset(y: 100)
 							}
-							.shadow(color: .gray, radius: 5)
 						)
+						.overlay(Image("green_dog_bowl_check")
+									.resizable()
+									.scaledToFit()
+									.frame(height: self.isShowDetails ? 40 : 50)
+									.padding(.trailing, 20)
+									.offset(x: self.isShowDetails ? geometry.size.width * 0.25 : 0 ,
+											y: self.isShowDetails ? 20 : 0)
+								 , alignment: self.isShowDetails ? .bottom : .bottomTrailing)
 				},
 						   placeholder: {
 					ProgressView()
@@ -46,5 +54,6 @@ struct ProductCardView: View {
 				})
 			}
 		}
+		.padding(.bottom, 50)
 	}
 }

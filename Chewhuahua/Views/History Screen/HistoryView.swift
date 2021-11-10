@@ -11,21 +11,21 @@ import SwiftUI
 struct HistoryView: View {
 	// MARK: - Properties
 	@StateObject var viewModel: HistoryViewModel
-	let makeProductView: (_ barcode: String, _ isPresentedModally: Bool) -> ProductView
+	let makeProductView: (_ barcode: String, _ isPresentedModally: Bool, _ canAddViewingRecord: Bool) -> ProductView
 	
 	var body: some View {
-		NavigationView {
 			VStack {
 				if viewModel.productViewRecords.isEmpty {
-					Text("You haven't scanned anything yet")
+					Text("You haven't viewed any products yet")
 						.font(.system(size: 20, weight: .bold, design: .rounded))
 						.padding(.horizontal, 20)
 				} else {
+					NavigationView {
 					ScrollView {
-						VStack {
+						LazyVStack {
 							ForEach(viewModel.productViewRecords, id: \.id) { record in
 								NavigationLink {
-									makeProductView(record.product.barcode, false)
+									makeProductView(record.product.barcode, false, false)
 										.navigationTitle("Product Details")
 										.navigationBarTitleDisplayMode(.inline)
 								} label: {
@@ -79,11 +79,12 @@ struct HistoryView: View {
 						}
 						.padding(.horizontal, 20)
 					}
+									.navigationTitle("History")
+									.navigationBarTitleDisplayMode(.inline)
+					}
+					.navigationViewStyle(StackNavigationViewStyle())
 				}
 			}
-			.navigationTitle("History")
-			.navigationBarTitleDisplayMode(.inline)
-		}
 		.onAppear(perform: onAppear)
 	}
 	
