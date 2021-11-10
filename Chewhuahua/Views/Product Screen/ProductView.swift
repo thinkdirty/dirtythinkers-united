@@ -16,36 +16,52 @@ struct ProductView: View {
 	@StateObject var viewModel: ProductViewModel
 	let isPresentedModally: Bool
 	
+	// MARK: - Properties
+	@State var isIngredientsListExpanded: Bool = true
+	@State var photoHeight: CGFloat = 0
+	
 	// MARK: View
 	var body: some View {
 		VStack {
 			if let product = viewModel.product {
-				AsyncImage(url: URL(string: product.photoURL),
-						   content: { image in
-					image
-						.resizable()
-						.scaledToFit()
-						.overlay(Image("green_dog_bowl_check")
+				GeometryReader { geometry in
+					ZStack {
+						VStack {
+							AsyncImage(url: URL(string: product.photoURL),
+									   content: { image in
+								image
 									.resizable()
 									.scaledToFit()
-									.frame(height: 40)
-									.offset(x: 30, y: 20)
-								 , alignment: .bottomTrailing)
-					
-				}) {
-					Image(systemName: "photo")
-						.resizable()
-						.scaledToFit()
-					Text("Sorry, but we can't find the image for this product")
+									.overlay(Image("green_dog_bowl_check")
+												.resizable()
+												.scaledToFit()
+												.frame(height: 40)
+												.offset(x: 30, y: 20)
+											 , alignment: .bottomTrailing)
+								
+							}) {
+								ProgressView()
+							}
+							.frame(height: photoHeight,
+								   alignment: .top)
+							.transition(.move(edge: .bottom))
+							.animation(.default)
+							.onChange(of: isIngredientsListExpanded, perform: { isExpanded in
+								photoHeight = isExpanded ? 0 : geometry.size.height * 0.5
+							})
+							
+							Spacer()
+						}
+						.fullScreen()
+						.padding(.vertical, 40)
+						.background(Color.white)
+						
+						ProductDetailView(product: product, isIngredientsListExpanded: $isIngredientsListExpanded)
+							.transition(.move(edge: .bottom))
+							.animation(.interpolatingSpring(mass: 0.5, stiffness: 100, damping: 10, initialVelocity: 0.3))
+							.shadow(color: .gray, radius: 5)
+					}
 				}
-				.frame(minWidth: .zero, maxWidth: .infinity,
-					   minHeight: 200, maxHeight: 200,
-					   alignment: .center)
-				.padding(.vertical, 20)
-				.background(Color.white)
-				.padding(.bottom, 5)
-				
-				ProductDetailView(product: product)
 			} else {
 				Text("Sorry, but we can't find this product in the database.")
 			}
@@ -54,8 +70,8 @@ struct ProductView: View {
 		.ignoresSafeArea(edges: isPresentedModally ? [.top] : [])
 		.overlay(alignment: .topLeading, content: {
 			if isPresentedModally {
-				closeButton
-					.padding(15)
+				CloseButtonView(action: onCloseButtonTapped)
+					.padding(.top, 15)
 			}
 		})
 		.onAppear(perform: onAppear)

@@ -11,9 +11,9 @@ import SwiftUI
 struct ProductDetailView: View {
 	// MARK: - Init Properties
 	let product: UIProduct
+	@Binding var isIngredientsListExpanded: Bool
 	
 	// MARK: - Properties
-	@State var isIngredientsListExpanded = false
 	@State var isBookMarked = true
 	@State var width: CGFloat?
 	@State var height: CGFloat?
@@ -23,7 +23,7 @@ struct ProductDetailView: View {
 	var body: some View {
 		GeometryReader { geometry in
 			ScrollView {
-				ZStack {
+				VStack {
 					VStack(alignment: .leading, spacing: 5) {
 						
 						VStack(alignment: .leading, spacing: 5) {
@@ -35,6 +35,7 @@ struct ProductDetailView: View {
 								Text(product.name)
 									.font(.system(.title, design: .rounded))
 									.fontWeight(.heavy)
+									.multilineTextAlignment(.leading)
 								
 								Text("\(product.weight) kg")
 									.font(.system(size: 18, weight: .semibold, design: .rounded))
@@ -100,7 +101,7 @@ struct ProductDetailView: View {
 									.padding(.vertical, 2)
 								}
 							}
-							.padding(.bottom, 280)
+							.padding(.bottom, 100)
 						}
 					}
 					.padding()
@@ -112,6 +113,7 @@ struct ProductDetailView: View {
 					.onAppear(perform: {
 						width = geometry.size.width
 						height = geometry.size.height
+						isIngredientsListExpanded = false
 					})
 					.onChange(of: isIngredientsListExpanded) { isExpanded in
 						if isExpanded {
@@ -122,8 +124,8 @@ struct ProductDetailView: View {
 						} else {
 							width = geometry.size.width
 							height = geometry.size.height
-							maxWidth = .infinity
-							maxHeight = .infinity
+							maxWidth = nil
+							maxHeight = nil
 						}
 					}
 					.overlay(alignment: .topTrailing) {
@@ -135,13 +137,14 @@ struct ProductDetailView: View {
 							.onTapGesture(perform: { isBookMarked.toggle() })
 
 					}
-					
-					VStack { EmptyView() }
-						.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
 				}
-				.offset(y: 15)
+				.frame(minWidth: .zero, maxWidth: .infinity,
+					   minHeight: .zero, maxHeight: .infinity,
+					   alignment: .bottom)
+				.offset(y: isIngredientsListExpanded ? 50 : 0)
 			}
 		}
+		.ignoresSafeArea(edges: .bottom)
 	}
 	
 	// MARK: - Methods

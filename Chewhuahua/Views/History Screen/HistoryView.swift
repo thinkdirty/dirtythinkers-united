@@ -14,15 +14,15 @@ struct HistoryView: View {
 	let makeProductView: (_ barcode: String, _ isPresentedModally: Bool) -> ProductView
 	
 	var body: some View {
-		NavigationView {
 			VStack {
 				if viewModel.productViewRecords.isEmpty {
 					Text("You haven't scanned anything yet")
 						.font(.system(size: 20, weight: .bold, design: .rounded))
 						.padding(.horizontal, 20)
 				} else {
+					NavigationView {
 					ScrollView {
-						VStack {
+						LazyVStack {
 							ForEach(viewModel.productViewRecords, id: \.id) { record in
 								NavigationLink {
 									makeProductView(record.product.barcode, false)
@@ -79,11 +79,12 @@ struct HistoryView: View {
 						}
 						.padding(.horizontal, 20)
 					}
+									.navigationTitle("History")
+									.navigationBarTitleDisplayMode(.inline)
+					}
+					.navigationViewStyle(StackNavigationViewStyle())
 				}
 			}
-			.navigationTitle("History")
-			.navigationBarTitleDisplayMode(.inline)
-		}
 		.onAppear(perform: onAppear)
 	}
 	
