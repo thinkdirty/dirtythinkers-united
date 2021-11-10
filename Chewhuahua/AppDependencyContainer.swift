@@ -43,7 +43,7 @@ class AppDependencyContainer {
 	// Home
 	func makeHomeView() -> HomeView {
 		let viewModel = makeHomeViewModel()
-		return HomeView(viewModel: viewModel, makeProductView: makeProductView)
+		return HomeView(viewModel: viewModel)
 	}
 	
 	func makeHomeViewModel() -> HomeViewModel {
@@ -74,14 +74,14 @@ class AppDependencyContainer {
 	}
 	
 	// Product
-	func makeProductView(_ barcode: String, isPresentedModally: Bool) -> ProductView {
-		let viewModel = makeProductViewModel(barcode: barcode)
+	func makeProductView(_ barcode: String, isPresentedModally: Bool, canAddViewingRecord: Bool) -> ProductView {
+		let viewModel = makeProductViewModel(barcode: barcode, canAddViewingRecord: canAddViewingRecord)
 		return ProductView(viewModel: viewModel, isPresentedModally: isPresentedModally)
 	}
 	
-	func makeProductViewModel(barcode: String) -> ProductViewModel {
+	func makeProductViewModel(barcode: String, canAddViewingRecord: Bool) -> ProductViewModel {
 		let repository = makeDataRepository()
-		return ProductViewModel(dataRepository: repository, barcode: barcode)
+		return ProductViewModel(dataRepository: repository, barcode: barcode, canAddViewingRecord: canAddViewingRecord)
 	}
 	
 	// Data Repository

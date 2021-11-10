@@ -13,15 +13,17 @@ class ProductViewModel: ObservableObject {
 	// MARK: - Properties
 	let dataRepository: DataRepository
 	let barcode: String
+	let canAddViewingRecord: Bool
 	
 	@Published var product: UIProduct?
 	
 	var subscriptions = Set<AnyCancellable>()
 	
 	// MARK: - Methods
-	init(dataRepository: DataRepository, barcode: String) {
+	init(dataRepository: DataRepository, barcode: String, canAddViewingRecord: Bool) {
 		self.dataRepository = dataRepository
 		self.barcode = barcode
+		self.canAddViewingRecord = canAddViewingRecord
 		
 		subsribe()
 	}
@@ -41,7 +43,7 @@ class ProductViewModel: ObservableObject {
 	}
 	
 	private func onProductUpdated(_ product: UIProduct) {
-		guard let coreDataProduct = dataRepository.fetchProduct(with: product.barcode) else { return }
+		guard canAddViewingRecord, let coreDataProduct = dataRepository.fetchProduct(with: product.barcode) else { return }
 		dataRepository.addProductViewRecord(for: coreDataProduct)
 	}
 }

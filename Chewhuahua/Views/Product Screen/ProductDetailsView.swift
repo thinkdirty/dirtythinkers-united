@@ -33,7 +33,7 @@ struct ProductDetailView: View {
 									.foregroundColor(.brandOrange)
 								
 								Text(product.name)
-									.font(.system(.title, design: .rounded))
+									.font(.system(size: 22, weight: .bold, design: .rounded))
 									.fontWeight(.heavy)
 									.multilineTextAlignment(.leading)
 								
@@ -42,7 +42,7 @@ struct ProductDetailView: View {
 									.foregroundColor(.black)
 								
 								Text("$\(product.price)")
-									.font(.system(size: 26, weight: .bold, design: .rounded))
+									.font(.system(size: 22, weight: .bold, design: .rounded))
 									.foregroundColor(.black)
 							}
 							

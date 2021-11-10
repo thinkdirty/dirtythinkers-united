@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F03EC21273B3A38003E28AB /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03EC20273B3A38003E28AB /* CloseButtonView.swift */; };
+		3F03EC25273B4F99003E28AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F03EC24273B4F99003E28AB /* LaunchScreen.storyboard */; };
 		3F71FA102735850700FCF5B0 /* ChewhuahuaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71FA0F2735850700FCF5B0 /* ChewhuahuaApp.swift */; };
 		3F71FA122735850700FCF5B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71FA112735850700FCF5B0 /* ContentView.swift */; };
 		3F71FA142735850900FCF5B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F71FA132735850900FCF5B0 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		3F03EC20273B3A38003E28AB /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
+		3F03EC24273B4F99003E28AB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F71FA0C2735850700FCF5B0 /* Chewhuahua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chewhuahua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F71FA0F2735850700FCF5B0 /* ChewhuahuaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChewhuahuaApp.swift; sourceTree = "<group>"; };
 		3F71FA112735850700FCF5B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 			path = "Shared Views";
 			sourceTree = "<group>";
 		};
+		3F03EC23273B4F71003E28AB /* Launch Screen */ = {
+			isa = PBXGroup;
+			children = (
+				3F03EC24273B4F99003E28AB /* LaunchScreen.storyboard */,
+			);
+			path = "Launch Screen";
+			sourceTree = "<group>";
+		};
 		3F71FA032735850700FCF5B0 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		3FAA547C27358D59008FEB73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F03EC23273B4F71003E28AB /* Launch Screen */,
 				3F03EC1F273B3A10003E28AB /* Shared Views */,
 				3FAA54B127372DCD008FEB73 /* UI Models */,
 				3FAA549A2735929E008FEB73 /* Scan Screen */,
@@ -286,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F03EC25273B4F99003E28AB /* LaunchScreen.storyboard in Resources */,
 				3F71FA172735850900FCF5B0 /* Preview Assets.xcassets in Resources */,
 				3F71FA142735850900FCF5B0 /* Assets.xcassets in Resources */,
 			);
@@ -460,10 +472,11 @@
 				DEVELOPMENT_TEAM = 55MMS4NHP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to your camera. The camera is needed to capture the barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -491,10 +504,11 @@
 				DEVELOPMENT_TEAM = 55MMS4NHP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to your camera. The camera is needed to capture the barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

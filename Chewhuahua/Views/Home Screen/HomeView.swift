@@ -11,7 +11,6 @@ import SwiftUI
 struct HomeView: View {
 	// MARK: - Init Properties
 	@StateObject var viewModel: HomeViewModel
-	let makeProductView: (_ barcode: String, _ isPresentedModally: Bool) -> ProductView
 	
 	// MARK: - Properties
 	@State private var isCardTapped = false
@@ -91,11 +90,18 @@ struct HomeView: View {
 			}
 		}
 		.onAppear(perform: onAppear)
+		.onChange(of: isCardTapped, perform: addProductViewRecord)
 	}
 	
 	// MARK: - Methods
 	
 	private func onAppear() {
 		viewModel.fetchProducts()
+	}
+	
+	private func addProductViewRecord(_ isCardTapped: Bool) {
+		if isCardTapped {
+			viewModel.addProductViewRecord(for: currentProductIndex)
+		}
 	}
 }
