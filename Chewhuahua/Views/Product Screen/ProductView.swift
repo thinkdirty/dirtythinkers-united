@@ -54,7 +54,7 @@ struct ProductView: View {
 						}
 						.fullScreen()
 						.padding(.vertical, 40)
-						.background(Color.white)
+						.background(Color.brandWhite)
 						
 						ProductDetailView(product: product, isIngredientsListExpanded: $isIngredientsListExpanded)
 							.transition(.move(edge: .bottom))
@@ -82,7 +82,7 @@ struct ProductView: View {
 		Button(action: onCloseButtonTapped, label: {
 			Image(systemName: "xmark")
 				.imageScale(.large)
-				.foregroundColor(.black)
+				.foregroundColor(.brandBlack)
 				.shadow(color: .gray, radius: 3)
 				.padding([.trailing, .bottom], 15)
 		})

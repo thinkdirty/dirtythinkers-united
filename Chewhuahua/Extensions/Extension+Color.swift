@@ -14,4 +14,6 @@ extension Color {
 	static let brandOrange = Color(UIColor(named: "brandOrange") ?? .systemOrange)
 	static let brandLightGray = Color(UIColor(named: "brandLightGray") ?? .systemGray2)
 	static let brandBaige = Color(UIColor(named: "brandBaige") ?? .systemGray3)
+	static let brandWhite = Color(UIColor(named: "brandWhite") ?? .white)
+	static let brandBlack = Color(UIColor(named: "brandBlack") ?? .black)
 }

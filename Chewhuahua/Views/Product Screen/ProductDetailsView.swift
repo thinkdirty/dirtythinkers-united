@@ -39,11 +39,11 @@ struct ProductDetailView: View {
 								
 								Text("\(product.weight) kg")
 									.font(.system(size: 18, weight: .semibold, design: .rounded))
-									.foregroundColor(.black)
+									.foregroundColor(.brandBlack)
 								
 								Text("$\(product.price)")
 									.font(.system(size: 22, weight: .bold, design: .rounded))
-									.foregroundColor(.black)
+									.foregroundColor(.brandBlack)
 							}
 							
 							HStack(spacing: 3) {
@@ -66,7 +66,7 @@ struct ProductDetailView: View {
 								HStack {
 									Text("Ingredients")
 										.font(.system(size: 20, weight: .bold, design: .rounded))
-										.foregroundColor(.black)
+										.foregroundColor(.brandBlack)
 									Spacer()
 									Image("plus")
 										.foregroundColor(.brandBlue)
@@ -108,7 +108,7 @@ struct ProductDetailView: View {
 					.frame(minWidth: .zero, idealWidth: width, maxWidth: maxWidth,
 						   minHeight: .zero, idealHeight: height, maxHeight: maxHeight,
 						   alignment: .topLeading)
-					.background(Color.white)
+					.background(Color.brandWhite)
 					.cornerRadius(15)
 					.onAppear(perform: {
 						width = geometry.size.width
