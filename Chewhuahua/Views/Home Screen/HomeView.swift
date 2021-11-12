@@ -33,8 +33,8 @@ struct HomeView: View {
 			.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
 			.padding(.top, 25)
 			.padding(.leading, 20)
-			.opacity(self.isCardTapped ? 0.1 : 1.0)
-			.offset(y: self.isCardTapped ? -100 : 0)
+			.opacity(self.isCardTapped ? 0.0 : 1.0)
+			.offset(y: self.isCardTapped ? -150 : 0)
 			
 			// Carousel
 			GeometryReader { outerView in

@@ -15,7 +15,7 @@ struct CloseButtonView: View {
 		Button(action: action) {
 			Image(systemName: "xmark.circle.fill")
 				.font(.system(size: 30))
-				.foregroundColor(.black)
+				.foregroundColor(.brandBlack)
 				.opacity(0.7)
 				.contentShape(Rectangle())
 		}

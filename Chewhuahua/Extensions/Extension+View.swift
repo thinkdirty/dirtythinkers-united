@@ -52,8 +52,8 @@ extension View {
 					  height: CGFloat = 50,
 					  cornerRadius: CGFloat = 4,
 					  horizontalPadding: CGFloat = 16,
-					  backgroundColor: Color = .black,
-					  foregroundColor: Color = .white) -> some View
+					  backgroundColor: Color = .brandBlack,
+					  foregroundColor: Color = .brandWhite) -> some View
 	{
 		self.modifier(CustomButton(width: width,
 								   height: height,

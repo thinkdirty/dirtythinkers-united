@@ -31,7 +31,7 @@ struct ProductCardView: View {
 									.fontWeight(.heavy)
 									.multilineTextAlignment(.center)
 									.padding(10)
-									.background(Color.white)
+									.background(Color.brandWhite)
 									.padding(.bottom)
 									.opacity(self.isShowDetails ? 0.0 : 1.0)
 									.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
